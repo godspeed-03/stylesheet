@@ -11,7 +11,8 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
+    "*.tsx": [
+      "npm run lint",
       "npm run format"
     ],
     "!tailwind.config.ts": [],
