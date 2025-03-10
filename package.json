@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write . --loglevel silent",
+    "format": "prettier --write .",
     "prepare": "husky install"
   },
   "lint-staged": {
