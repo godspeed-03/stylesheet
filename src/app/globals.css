@@ -1,26 +1,423 @@
-@import 'tailwindcss';
+@import url("https://fonts.googleapis.com/css2?family=Iceland&display=swap");
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    display: none;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* globals.css */
+@keyframes hologram-flicker {
+    0% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 0.95;
+    }
+
+    100% {
+        opacity: 0.8;
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes particle-drift {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(100px, -50px);
+    }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Add subtle animation to text background */
+
+@layer base {
+    :root {
+        --background: 240, 100%, 1%;
+        --foreground: 240, 100%, 100%;
+
+        --primary: 0, 77%, 60%;
+        --secondary: 348, 6%, 16%;
+        --tertairy: 43, 77%, 60%;
+        --fourth: 202, 77%, 60%;
+        --fifth: 126, 70%, 63%;
+        --black: 240, 100%, 0%;
+
+        --fnt-26: 1.625rem;
+        --fnt-22: 1.375rem;
+        --fnt-20: 1.25rem;
+        --fnt-18: 1.125rem;
+        --fnt-16: 1rem;
+        --fnt-14: 0.825rem;
+
+        --radius: 3rem;
+    }
+}
+
+@layer base {
+    body {
+        @apply bg-bg text-fg;
+    }
+}
+
+@layer utilities {
+    .text-glitch {
+        animation: hologram-flicker 0.1s infinite;
+        text-shadow:
+            2px 2px 0px var(--primary),
+            -2px -2px 0px var(--secondary);
+    }
+
+    .hologram-particle {
+        animation: particle-drift 5s infinite linear;
+    }
+
+    /* For screens above 1440px (Line height: 150%) */
+    @media (min-width: 1441px) {
+        .fnt14 {
+            font-size: calc(var(--fnt-14) * 1.2);
+            line-height: 150%;
+        }
+
+        .fnt14-bold {
+            font-size: calc(var(--fnt-14) * 1.2);
+            font-weight: 700;
+            line-height: 150%;
+        }
+
+        .fnt16 {
+            font-size: calc(var(--fnt-16) * 1.2);
+            line-height: 150%;
+        }
+
+        .fnt16-bold {
+            font-size: calc(var(--fnt-16) * 1.2);
+            font-weight: 700;
+            line-height: 150%;
+        }
+
+        .fnt18 {
+            font-size: calc(var(--fnt-18) * 1.2);
+            line-height: 150%;
+        }
+
+        .fnt18-bold {
+            font-size: calc(var(--fnt-18) * 1.2);
+            font-weight: 700;
+            line-height: 150%;
+        }
+
+        .fnt20 {
+            font-size: calc(var(--fnt-20) * 1.2);
+            line-height: 150%;
+        }
+
+        .fnt20-bold {
+            font-size: calc(var(--fnt-20) * 1.2);
+            font-weight: 700;
+            line-height: 150%;
+        }
+
+        .fnt22 {
+            font-size: calc(var(--fnt-22) * 1.2);
+            line-height: 150%;
+        }
+
+        .fnt22-bold {
+            font-size: calc(var(--fnt-22) * 1.2);
+            font-weight: 700;
+            line-height: 150%;
+        }
+
+        .fnt26 {
+            font-size: calc(var(--fnt-26) * 1.2);
+            line-height: 150%;
+        }
+
+        .fnt26-bold {
+            font-size: calc(var(--fnt-26) * 1.2);
+            font-weight: 700;
+            line-height: 150%;
+        }
+    }
+
+    /* For screens from 1025px to 1440px (Line height: 145%) */
+    @media (max-width: 1440px) and (min-width: 1025px) {
+        .fnt14 {
+            font-size: calc(var(--fnt-14) * 1.1);
+            line-height: 145%;
+        }
+
+        .fnt14-bold {
+            font-size: calc(var(--fnt-14) * 1.1);
+            font-weight: 700;
+            line-height: 145%;
+        }
+
+        .fnt16 {
+            font-size: calc(var(--fnt-16) * 1.1);
+            line-height: 145%;
+        }
+
+        .fnt16-bold {
+            font-size: calc(var(--fnt-16) * 1.1);
+            font-weight: 700;
+            line-height: 145%;
+        }
+
+        .fnt18 {
+            font-size: calc(var(--fnt-18) * 1.1);
+            line-height: 145%;
+        }
+
+        .fnt18-bold {
+            font-size: calc(var(--fnt-18) * 1.1);
+            font-weight: 700;
+            line-height: 145%;
+        }
+
+        .fnt20 {
+            font-size: calc(var(--fnt-20) * 1.1);
+            line-height: 145%;
+        }
+
+        .fnt20-bold {
+            font-size: calc(var(--fnt-20) * 1.1);
+            font-weight: 700;
+            line-height: 145%;
+        }
+
+        .fnt22 {
+            font-size: calc(var(--fnt-22) * 1.1);
+            line-height: 145%;
+        }
+
+        .fnt22-bold {
+            font-size: calc(var(--fnt-22) * 1.1);
+            font-weight: 700;
+            line-height: 145%;
+        }
+
+        .fnt26 {
+            font-size: calc(var(--fnt-26) * 1.1);
+            line-height: 145%;
+        }
+
+        .fnt26-bold {
+            font-size: calc(var(--fnt-26) * 1.1);
+            font-weight: 700;
+            line-height: 145%;
+        }
+    }
+
+    /* For screens from 769px to 1024px (Line height: 140%) */
+    @media (max-width: 1024px) and (min-width: 769px) {
+        .fnt14 {
+            font-size: var(--fnt-14);
+            line-height: 140%;
+        }
+
+        .fnt14-bold {
+            font-size: var(--fnt-14);
+            font-weight: 700;
+            line-height: 140%;
+        }
+
+        .fnt16 {
+            font-size: var(--fnt-16);
+            line-height: 140%;
+        }
+
+        .fnt16-bold {
+            font-size: var(--fnt-16);
+            font-weight: 700;
+            line-height: 140%;
+        }
+
+        .fnt18 {
+            font-size: var(--fnt-18);
+            line-height: 140%;
+        }
+
+        .fnt18-bold {
+            font-size: var(--fnt-18);
+            font-weight: 700;
+            line-height: 140%;
+        }
+
+        .fnt20 {
+            font-size: var(--fnt-20);
+            line-height: 140%;
+        }
+
+        .fnt20-bold {
+            font-size: var(--fnt-20);
+            font-weight: 700;
+            line-height: 140%;
+        }
+
+        .fnt22 {
+            font-size: var(--fnt-22);
+            line-height: 140%;
+        }
+
+        .fnt22-bold {
+            font-size: var(--fnt-22);
+            font-weight: 700;
+            line-height: 140%;
+        }
+
+        .fnt26 {
+            font-size: var(--fnt-26);
+            line-height: 140%;
+        }
+
+        .fnt26-bold {
+            font-size: var(--fnt-26);
+            font-weight: 700;
+            line-height: 140%;
+        }
+    }
+
+    /* For screens from 768px to 426px (Font size: 0.9 times, Line height: 130%) */
+    @media (max-width: 768px) and (min-width: 426px) {
+        .fnt14 {
+            font-size: calc(var(--fnt-14) * 0.9);
+            line-height: 130%;
+        }
+
+        .fnt14-bold {
+            font-size: calc(var(--fnt-14) * 0.9);
+            font-weight: 700;
+            line-height: 130%;
+        }
+
+        .fnt16 {
+            font-size: calc(var(--fnt-16) * 0.9);
+            line-height: 130%;
+        }
+
+        .fnt16-bold {
+            font-size: calc(var(--fnt-16) * 0.9);
+            font-weight: 700;
+            line-height: 130%;
+        }
+
+        .fnt18 {
+            font-size: calc(var(--fnt-18) * 0.9);
+            line-height: 130%;
+        }
+
+        .fnt18-bold {
+            font-size: calc(var(--fnt-18) * 0.9);
+            font-weight: 700;
+            line-height: 130%;
+        }
+
+        .fnt20 {
+            font-size: calc(var(--fnt-20) * 0.9);
+            line-height: 130%;
+        }
+
+        .fnt20-bold {
+            font-size: calc(var(--fnt-20) * 0.9);
+            font-weight: 700;
+            line-height: 130%;
+        }
+
+        .fnt22 {
+            font-size: calc(var(--fnt-22) * 0.9);
+            line-height: 130%;
+        }
+
+        .fnt22-bold {
+            font-size: calc(var(--fnt-22) * 0.9);
+            font-weight: 700;
+            line-height: 130%;
+        }
+
+        .fnt26 {
+            font-size: calc(var(--fnt-26) * 0.9);
+            line-height: 130%;
+        }
+
+        .fnt26-bold {
+            font-size: calc(var(--fnt-26) * 0.9);
+            font-weight: 700;
+            line-height: 130%;
+        }
+    }
+
+    /* For screens 425px and below (Font size: 0.8 times, Line height: 125%) */
+    @media (max-width: 425px) {
+        .fnt14 {
+            font-size: calc(var(--fnt-14) * 0.8);
+            line-height: 125%;
+        }
+
+        .fnt14-bold {
+            font-size: calc(var(--fnt-14) * 0.8);
+            font-weight: 700;
+            line-height: 125%;
+        }
+
+        .fnt16 {
+            font-size: calc(var(--fnt-16) * 0.8);
+            line-height: 125%;
+        }
+
+        .fnt16-bold {
+            font-size: calc(var(--fnt-16) * 0.8);
+            font-weight: 700;
+            line-height: 125%;
+        }
+
+        .fnt18 {
+            font-size: calc(var(--fnt-18) * 0.8);
+            line-height: 125%;
+        }
+
+        .fnt18-bold {
+            font-size: calc(var(--fnt-18) * 0.8);
+            font-weight: 700;
+            line-height: 125%;
+        }
+
+        .fnt20 {
+            font-size: calc(var(--fnt-20) * 0.8);
+            line-height: 125%;
+        }
+
+        .fnt20-bold {
+            font-size: calc(var(--fnt-20) * 0.8);
+            font-weight: 700;
+            line-height: 125%;
+        }
+
+        .fnt22 {
+            font-size: calc(var(--fnt-22) * 0.8);
+            line-height: 125%;
+        }
+
+        .fnt22-bold {
+            font-size: calc(var(--fnt-22) * 0.8);
+            font-weight: 700;
+            line-height: 125%;
+        }
+
+        .fnt26 {
+            font-size: calc(var(--fnt-26) * 0.8);
+            line-height: 125%;
+        }
+
+        .fnt26-bold {
+            font-size: calc(var(--fnt-26) * 0.8);
+            font-weight: 700;
+            line-height: 125%;
+        }
+    }
 }
